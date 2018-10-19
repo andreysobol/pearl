@@ -10,3 +10,8 @@ class Transaction(Block):
         signature = k.sign(sha3hash)
         self.signature = signature
         return signature
+    
+    def verify_signature(self, sha3hash, owner, signature):
+        k = Key.from_sec(owner)
+        result = k.verify(sha3hash, signature)
+        return result
