@@ -16,6 +16,10 @@ WITNESS_TYPE = b'\x01'
 
 class Block:
 
+    def unpack_block_type(self, raw_data):
+        self.block_type = raw_data[32:33]
+        return self.block_type
+
     def unpack(self, raw_data):
         self.parrent_transaction_hash = raw_data[:32]
         buffer = raw_data[32:]
