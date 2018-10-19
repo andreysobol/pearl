@@ -1,6 +1,7 @@
 import sha3
 
 from pearlbase import PearlBase
+from unsppendpearls import UnsppendPearls
 
 class Genesis:
 
@@ -12,3 +13,6 @@ class Genesis:
         for item in self.pearl_bases:
             buffer = buffer + item.get_bytes()
         return sha3.sha3_256(buffer).digest()
+
+    def get_unsppend_pearls(self):
+        return UnsppendPearls(self.pearl_bases)
