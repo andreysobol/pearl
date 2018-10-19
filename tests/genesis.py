@@ -3,14 +3,15 @@ import sha3
 
 from genesis import Genesis
 from pearl import Pearl
+from pearlbase import PearlBase
 
 class TestGenesis(unittest.TestCase):
 
     def test_get_hash(self):
 
         pearl_owners = [
-            (Pearl(0),b'\xF0'*33),
-            (Pearl(1),b'\xF1'*33),
+            PearlBase(Pearl(0),b'\xF0'*33),
+            PearlBase(Pearl(1),b'\xF1'*33),
         ]
         genesis = Genesis(pearl_owners)
         gh = genesis.get_hash()
