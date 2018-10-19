@@ -7,7 +7,7 @@ class Genesis:
         self.pearl_owners = pearl_owners
 
     def get_hash(self):
-        buffer = []
-        for item in pearl_owners:
-            buffer = buffer + item[0] + item[1]
+        buffer = bytes()
+        for item in self.pearl_owners:
+            buffer = buffer + item[0].get_color_bytes() + item[1]
         return sha3.sha3_256(buffer).digest()
