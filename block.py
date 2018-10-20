@@ -11,6 +11,8 @@
 # out_transaction 32b
 # signature
 
+import sha3
+
 TRANSACTION_TYPE = b'\x00'
 WITNESS_TYPE = b'\x01'
 
@@ -31,3 +33,10 @@ class Block:
             self.new_owner = buffer[:33]
         buffer = buffer[33:]
         self.signature = buffer
+
+    def get_hash(self):
+        buffer = self.parrent_transaction_hash \
+            + self.block_type \
+            + self.out_transaction_hash \
+            + (self.new_owner if self.block_type == TRANSACTION_TYPE else b'')
+        return sha3.sha3_256(buffer).digest()

@@ -8,3 +8,9 @@ class UnspendPearls:
             if tx.owner == owner:
                 return tx
         return False
+
+    def find_by_hash(self, sha3hash):
+        for tx in self.transactions:
+            if tx.get_hash() == sha3hash:
+                return tx
+        return False
