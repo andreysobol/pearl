@@ -15,3 +15,9 @@ class Transaction(Block):
         k = Key.from_sec(owner)
         result = k.verify(sha3hash, signature)
         return result
+
+    def verify_owner(self, owner, unspend_pearls):
+        return unspend_pearls.find_by_owner(owner):
+    
+    def verify_new_owner(self, new_owner, unspend_pearls):
+        return not unspend_pearls.find_by_owner(new_owner)
