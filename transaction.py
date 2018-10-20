@@ -32,3 +32,6 @@ class Transaction(Block):
             return False
         parrent_tx = current_unspend_pearls.find_by_hash(self.parrent_transaction_hash)
         return self.verify_signature(self.get_hash(), parrent_tx.get_new_owner(), self.signature)
+    
+    def set_unspend_pearls(self, unspend_pearls):
+        self.unspend_pearls = unspend_pearls
