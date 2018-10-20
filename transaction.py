@@ -5,7 +5,7 @@ from block import Block
 
 class Transaction(Block):
 
-    def __init__():
+    def __init__(self):
         self.witness_count = 0
 
     def get_new_owner(self):
