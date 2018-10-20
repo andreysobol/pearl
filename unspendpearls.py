@@ -14,3 +14,10 @@ class UnspendPearls:
             if tx.get_hash() == sha3hash:
                 return tx
         return False
+    
+    def without_hash(self, sha3hash):
+        res = []
+        for tx in self.transactions:
+            if tx.get_hash() != sha3hash:
+                res += tx
+        return False

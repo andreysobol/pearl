@@ -11,7 +11,11 @@ class Chain:
         transaction = Transaction()
         transaction.unpack(raw)
         if transaction.verify(current_unspend_pearls):
-            return
+            tx_list = current_unspend_pearls.without_hash(transaction.out_transaction_hash)
+            tx_list.append(transaction)
+            up = UnspendPearls(tx_list)
+            transaction.set_unspend_pearls(up)
+            self.current_unspend_pearls = up
 
     def add_block(self, raw):
         block = Block()
