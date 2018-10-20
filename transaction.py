@@ -5,6 +5,9 @@ from block import Block
 
 class Transaction(Block):
 
+    def __init__():
+        self.witness_count = 0
+
     def get_new_owner(self):
         return self.new_owner
 
@@ -35,3 +38,6 @@ class Transaction(Block):
     
     def set_unspend_pearls(self, unspend_pearls):
         self.unspend_pearls = unspend_pearls
+    
+    def inc_witness_count(self):
+        self.witness_count += 1
