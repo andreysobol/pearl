@@ -16,6 +16,7 @@ class Chain:
             up = UnspendPearls(tx_list)
             transaction.set_unspend_pearls(up)
             self.current_unspend_pearls = up
+            self.blocks += transaction
 
     def add_block(self, raw):
         block = Block()
